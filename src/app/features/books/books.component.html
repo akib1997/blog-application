@@ -1,0 +1,45 @@
+<ng-container
+  *ngIf="{
+    books: books$ | async,
+    isLoading: isLoading$ | async
+  } as data"
+>
+  <div class="max-w-xl w-full mx-auto">
+    <div class="flex space-x-4">
+      <p class="whitespace-nowrap">Book Name</p>
+      <input #inputElement class="rounded outline-none border-purple-300 border px-4 py-1 w-full" />
+      <button
+        class="bg-purple-600 text-white inline-block px-4 py-1 border-none outline-none shadow whitespace-nowrap"
+        (click)="onCreateBook(inputElement.value)"
+      >
+        Create book
+      </button>
+    </div>
+
+    <div class="grid grid-cols-3 gap-2 mt-4 border-b border-gray-100 pb-2 mb-4">
+      <div class="dd">
+        <p>ID</p>
+      </div>
+      <div class="dd">
+        <p>Name</p>
+      </div>
+      <div class="text-right">
+        <p>Action</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-3 gap-2">
+      <ng-container *ngFor="let book of data.books">
+        <div>{{ book.id }}</div>
+        <div>{{ book.name }}</div>
+        <div class="text-right">
+          <button
+            class="bg-red-600 text-white inline-block px-4 py-1 border-none outline-none shadow"
+            (click)="onDeleteBook(book)"
+          >
+            Delete
+          </button>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,11 @@
+<button class="bg-purple-500 text-white outline-none border-none shadow rounded px-4 py-1" (click)="addArticle()">Add Article</button>
+<div class="grid grid-cols-3 gap-4">
+  <ng-container *ngFor="let article of articles">
+    <div class="shadow p-3">
+      <h3 class="text-lg"> {{article.title}} </h3>
+      <p> {{article.description}} </p>
+      <p> {{article.createdAt}} </p>
+      <p> {{article.updatedAt}} </p>
+    </div>
+  </ng-container>
+</div>

@@ -9,9 +9,14 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { BookStoreModule } from './store/book/book-store.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { HeaderComponent } from './core/components/header/header.component';
+import { ArticleModule } from './features/article/article.module';
+import { BooksModule } from './features/books/books.module';
+import { SharedModule } from './shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HeaderComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -20,6 +25,10 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     EffectsModule.forRoot(),
     StoreDevtoolsModule.instrument({}),
     BookStoreModule,
+    ArticleModule,
+    BooksModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

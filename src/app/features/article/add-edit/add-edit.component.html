@@ -1,0 +1,56 @@
+<section class="d">
+  <h4 class="text-2xl font-medium text-center">Add Article</h4>
+  <form class="max-w-md mx-auto" [formGroup]="articleForm">
+    <div class="grid gap-3">
+      <div class="dd">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          name="title"
+          formControlName="title"
+          class="w-full border border-gray-300 outline-none px-4 py-1 rounded"
+        />
+      </div>
+      <div class="dd">
+        <label for="description">description</label>
+        <input
+          type="text"
+          name="description"
+          formControlName="description"
+          class="w-full border border-gray-300 outline-none px-4 py-1 rounded"
+        />
+      </div>
+      <div class="dd">
+        <label for="body">body</label>
+        <input
+          type="text"
+          name="body"
+          formControlName="body"
+          class="w-full border border-gray-300 outline-none px-4 py-1 rounded"
+        />
+      </div>
+      <div class="dd">
+        <label for="published">Published</label>
+        <input
+          type="checkbox"
+          name="published"
+          formControlName="published"
+          class="radio radio-primary"
+        />
+      </div>
+    </div>
+    <button
+      class="bg-purple-500 text-white outline-none border-none shadow rounded px-4 py-1 capitalize mt-4"
+      (click)="submit()"
+    >
+      Submit
+    </button>
+  </form>
+</section>
+
+<button
+  class="bg-purple-500 text-white outline-none border-none shadow rounded px-4 py-1 capitalize"
+  goBack
+>
+  back
+</button>
