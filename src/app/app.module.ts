@@ -23,7 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     StoreModule.forRoot(),
     EffectsModule.forRoot(),
-    StoreDevtoolsModule.instrument({}),
+    StoreDevtoolsModule.instrument({connectInZone: true}),
     BookStoreModule,
     ArticleModule,
     BooksModule,
