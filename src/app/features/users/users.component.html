@@ -1,0 +1,14 @@
+<ng-container *ngIf="!loading; else loadingTemplate">
+  <ul class="grid gap-4 grid-cols-2 max-w-xl w-full mx-auto my-10">
+    <ng-container *ngFor="let user of users">
+      <li class="shadow p-4 transition-all hover:shadow-md">
+        <p class="mb-2">Name: {{ user.name }}</p>
+        <p class="mb-2">Email: {{ user.email }}</p>
+        <p class="mb-2">{{ user.createdAt }}</p>
+        <p class="mb-2">{{ user.updatedAt }}</p>
+      </li>
+    </ng-container>
+  </ul>
+</ng-container>
+
+<ng-template #loadingTemplate> Loading </ng-template>

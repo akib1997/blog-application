@@ -25,10 +25,13 @@ export class ApiService {
     return this.http.get<T>(url);
   }
 
+  // singlePost(path: string, ): Observable<any> {
+  //   return ''
+  // }
+
   processQuery(obj: any): string {
-    if (obj === null || obj === undefined) {
-      return '';
-    }
+    if (obj == null) return '';
+
     const str = Object.entries(obj)
       .map(
         ([key, value]) =>
