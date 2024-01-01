@@ -1,0 +1,77 @@
+<div class="max-w-sm w-full">
+  <div *ngIf="loginError" class="text-lg text-center mb-3">
+    {{ loginError }}
+  </div>
+  <form class="grid gap-4" [formGroup]="registrationForm">
+    <div class="w-full">
+      <label>Email</label>
+      <input
+        class="px-4 py-2 border rounded-sm outline-none block w-full"
+        formControlName="email"
+        type="email"
+      />
+
+      <div
+        *ngIf="
+          registrationForm.controls['email'].touched &&
+          registrationForm.controls['email'].hasError('email') &&
+          !registrationForm.controls['email'].hasError('required')
+        "
+      >
+        Please enter a valid email address
+      </div>
+      <div
+        *ngIf="
+          registrationForm.controls['email'].touched &&
+          registrationForm.controls['email'].hasError('required')
+        "
+      >
+        Email is <strong>required</strong>
+      </div>
+    </div>
+
+    <div class="w-full relative">
+      <label>Password</label>
+      <input
+        class="px-4 py-2 border rounded-sm outline-none block w-full"
+        formControlName="password"
+        type="password"
+        [type]="hide ? 'password' : 'text'"
+        autocomplete="on"
+      />
+
+      <!-- Hide Show  -->
+      <button (click)="hide = !hide" class="absolute right-2 top-8 text-sm">
+        {{ hide ? "Show" : "Hide" }}
+      </button>
+      <!-- Hide Show  -->
+
+      <div
+        *ngIf="
+          registrationForm.controls['password'].touched &&
+          registrationForm.controls['password'].hasError('required')
+        "
+      >
+        Password is <strong>required</strong>
+      </div>
+
+      <div *ngIf="registrationForm.controls['password'].hasError('minlength')">
+        Minimum length is 6
+      </div>
+      <div *ngIf="registrationForm.controls['password'].hasError('maxlength')">
+        Maximum length is 8
+      </div>
+    </div>
+    <div class="flex items-center space-x-4">
+      <p>No Account?</p>
+      <a routerLink="/auth/login" class="font-medium text-blue-600">Login</a>
+    </div>
+
+    <button
+      class="bg-blue-600 text-white px-4 py-1 rounded shadow outline-none cursor-pointer"
+      (click)="onSubmit()"
+    >
+      Register
+    </button>
+  </form>
+</div>

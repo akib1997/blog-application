@@ -16,6 +16,10 @@ export class NavigateService {
     });
   }
 
+  toHome(): void {
+    this.router.navigateByUrl('/');
+  }
+
   back(): void {
     this.history.pop();
     if (this.history.length > 0) {

@@ -6,6 +6,9 @@
     "outDir": "./dist/out-tsc",
     "paths": {
       "@env/*": ["src/environments/*"],
+      "@services/*": ["src/app/core/services/*"],
+      "@models/*": ["src/app/core/models/*"],
+      "@interfaces/*": ["src/app/core/interfaces/*"],
     },
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -22,6 +25,7 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
+    "strictPropertyInitialization": false,
     "lib": [
       "ES2022",
       "dom"
